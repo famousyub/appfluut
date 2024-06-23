@@ -1,0 +1,194 @@
+// Google Font Link
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800&family=Red+Hat+Display:wght@300;400;500;600;700&display=swap');
+
+.product-cards {
+  position: relative;
+  padding: 2% 5% 0 5%;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+    font-size: 1.4em;
+
+    font-family: 'Red Hat Display', sans-serif;
+
+    h1 {
+      -webkit-text-fill-color: transparent;
+      background: linear-gradient(90deg, #00ff83, #5d5bb7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-weight: 700;
+    }
+  }
+
+  &__price-filter {
+    margin: 1.2em 0;
+    font-size: 1.1em;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      font-weight: 600;
+    }
+
+    select {
+      color: #000000;
+      font-size: 0.6em;
+      font-weight: 600;
+    }
+  }
+
+  &__cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+  }
+
+  &__card-outer-box {
+    width: 30%;
+    min-width: 23em;
+    background: linear-gradient(321deg, #00ff83 0%, #5d5bb7 100%);
+    border-radius: 0.5em;
+    padding: 0.1em;
+    box-shadow: 0.2em 0.2em 0.5em -0.2em rgba(255, 255, 255, 0.5);
+
+    // Button Bounce Animation
+    &:hover {
+      .product-cards__atc-button {
+        animation: btnBounce 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite
+          alternate;
+      }
+    }
+
+    @keyframes btnBounce {
+      from {
+        transform: translateY(0.187em);
+      }
+      to {
+        transform: translateY(-0.187em);
+      }
+    }
+  }
+
+  &__card {
+    position: relative;
+    width: 100%;
+    border-radius: 0.5em;
+    overflow: hidden;
+    background-color: #000000;
+
+    img {
+      position: relative;
+      z-index: 2;
+      width: 70%;
+      display: block;
+      margin: 0 auto;
+      transition: all 0.3s linear;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      top: -15%;
+      right: -15%;
+      width: 15em;
+      height: 15em;
+      z-index: 1;
+      border-radius: 50%;
+      transition: all 0.3s ease-in-out;
+      background: linear-gradient(
+        321deg,
+        rgba(0, 255, 131, 1) 0%,
+        rgba(93, 91, 183, 1) 100%
+      );
+    }
+
+    &:hover {
+      &::before {
+        width: 20em;
+        height: 20em;
+        opacity: 0.6;
+      }
+
+      .product-cards__thumbnail {
+        transform: scale(105%);
+      }
+    }
+  }
+
+  &__image-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__details {
+    padding: 1em 5%;
+    position: relative;
+    z-index: 2;
+    line-height: 1.5;
+
+    h3 {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: 1.3em;
+      font-weight: 700;
+      color: #00ff83;
+    }
+
+    p:nth-child(2) {
+      font-size: 1em;
+      font-weight: 400;
+      margin: 1.5em 0;
+    }
+  }
+
+  &__price-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      font-size: 1.3em;
+      font-weight: 600;
+
+      span {
+        color: #00ff83;
+      }
+    }
+
+    button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1em;
+      background: rgb(0, 255, 131);
+      background: linear-gradient(
+        321deg,
+        rgba(0, 255, 131, 1) 0%,
+        rgba(93, 91, 183, 1) 100%
+      );
+      padding: 0.5em 1em;
+      border: none;
+      border-radius: 0.5em;
+      font-size: 0.79em;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+
+      img {
+        width: 1.3em;
+        height: 1.3em;
+      }
+    }
+  }
+}
